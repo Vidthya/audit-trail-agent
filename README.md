@@ -1,8 +1,8 @@
 # audit-trail-agent
 
-A small, honest demonstration of an **agentic document workflow with a control and evidence layer**: read invoices, check them against bank lines, send anything doubtful to a named human, and keep a tamper-evident record of every step.
+A small, honest demonstration of an agentic document workflow with a control and evidence layer: read invoices, check them against bank lines, send anything doubtful to a named human, and keep a tamper-evident record of every step.
 
-It runs on **synthetic data only** (invoices with known correct answers), so every claim it makes can be measured.
+It runs on synthetic data only, which are invoices with known correct answers, so every claim it makes can be measured.
 
 ## What it does
 
