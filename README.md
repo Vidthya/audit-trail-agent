@@ -6,12 +6,12 @@ It runs on **synthetic data only** (invoices with known correct answers), so eve
 
 ## What it does
 
-1. **Extract** supplier, invoice number, date and total from invoice text. Every field must come with a **quote** from the document.
-2. **Ground-check** each field: the quote must really appear in the document and must support the value. An invented or misread value is blocked, not accepted.
-3. **Match** the invoice to bank lines with plain deterministic rules: `ok`, `amount_mismatch`, `unpaid`, `duplicate_payment`.
-4. **Route** every exception or failed extraction to a named reviewer (round-robin). Only the assigned reviewer can record a decision.
-5. **Record** every step in an append-only, hash-chained evidence trail. `verify()` detects edited, deleted or reordered entries. Inputs are stored as hashes, with the model name and prompt hash.
-6. **Evaluate** against the known truth: field accuracy, exception precision/recall, and how many items went to a human.
+1. Extract supplier, invoice number, date and total from invoice text. Every field must come with a **quote** from the document.
+2. Ground-check each field: the quote must really appear in the document and must support the value. An invented or misread value is blocked, not accepted.
+3. Match the invoice to bank lines with plain deterministic rules: `ok`, `amount_mismatch`, `unpaid`, `duplicate_payment`.
+4. Route every exception or failed extraction to a named reviewer (round-robin). Only the assigned reviewer can record a decision.
+5. Record every step in an append-only, hash-chained evidence trail. `verify()` detects edited, deleted or reordered entries. Inputs are stored as hashes, with the model name and prompt hash.
+6. Evaluate against the known truth: field accuracy, exception precision/recall, and how many items went to a human.
 
 The language model only does step 1. Steps 2-6 are ordinary code, so the control layer does not depend on the model behaving.
 
